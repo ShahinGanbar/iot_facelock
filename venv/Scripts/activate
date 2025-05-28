@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\ShahinGanbar\AI\Projects\face_lockv2\venv"
+VIRTUAL_ENV="C:\Users\USER\Desktop\bit\iot_facelock\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

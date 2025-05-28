@@ -20,9 +20,9 @@ def crop_to_3_4(image):
         return image[start_y:start_y + new_height, :]
 
 # === File paths ===
-source_path = r"C:\Users\Murad\Pictures\Camera Roll\WIN_20250517_16_57_31_Pro.jpg"    # Image you want to crop
-target_path = "C:\ShahinGanbar\AI\Projects\live_test\Silent-Face-Anti-Spoofing\images\sample\image_F2.jpg"     # Image whose size you want to match
-output_path = "C:\ShahinGanbar\AI\Projects\live_test\Silent-Face-Anti-Spoofing\images\sample\image_T5.jpg"     # Final saved image
+source_path = r"Silent-Face-Anti-Spoofing/images/sample/Kerim.jpg"    # Image you want to crop
+target_path = r"Silent-Face-Anti-Spoofing/images/sample/image_F2.jpg"     # Image whose size you want to match
+output_path = r"Silent-Face-Anti-Spoofing/images/sample/cropped.jpg"     # Final saved image
 
 # === Load images ===
 source_img = cv2.imread(source_path)
