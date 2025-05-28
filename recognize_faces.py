@@ -34,6 +34,37 @@ def log_recognition(name, confidence):
     with open(log_file, 'a') as f:
         f.write(f"{timestamp} - Recognized: {name} ({confidence:.2f}%)\n")
 
+def recognize_face_from_frame(frame):
+    """
+    Recognize a face from a frame and return the person's name
+    Returns None if no face is recognized or confidence is too low
+    """
+    try:
+        # Convert to grayscale
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        
+        # Detect faces
+        faces = face_detector.detectMultiScale(gray, 1.3, 5)
+        
+        for (x, y, w, h) in faces:
+            # Get face region
+            face_roi = gray[y:y+h, x:x+w]
+            
+            # Recognize face
+            label, confidence = face_recognizer.predict(face_roi)
+            
+            # Lower confidence means better match in LBPH
+            if confidence < 80:  # Threshold for accepting prediction
+                name = label_map.get(label, "Unknown")
+                log_recognition(name, 100 - confidence)
+                return name
+                
+        return None
+        
+    except Exception as e:
+        print(f"Error during face recognition: {str(e)}")
+        return None
+
 def main():
     print("=== Face Recognition Test Mode ===")
     print("Press 'q' to quit\n")
