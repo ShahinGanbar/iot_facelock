@@ -3,7 +3,7 @@ import sys
 import cv2
 from data_pre import crop_to_3_4
 
-# Add Silent-Face-Anti-Spoofing to Python path
+## Add Silent-Face-Anti-Spoofing to Python path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 spoof_dir = os.path.join(current_dir, "Silent-Face-Anti-Spoofing")
 sys.path.insert(0, spoof_dir)
